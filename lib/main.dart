@@ -2,6 +2,7 @@ import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cool_widgets/image_slider_screen.dart';
 import 'package:flutter_styled_toast/flutter_styled_toast.dart';
+import 'package:flutter_cool_widgets/radio_button_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
       home: const MyHomePage(),
       routes: {
         '/Image-Slider-Screen': (ctx) => const ImageSliderScreen(),
+        '/Radio-Button-Screen': (ctx) => const RadioButtonScreen(),
       },
     );
   }
@@ -209,6 +211,17 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: const SizedBox(
                             width: double.infinity,
                             child: Text('Image Slider Screen',
+                                textAlign: TextAlign.center),
+                          ),
+                        ),
+                        ElevatedButton(
+                          onPressed: () {
+                            Navigator.of(context)
+                                .pushNamed('/Radio-Button-Screen');
+                          },
+                          child: const SizedBox(
+                            width: double.infinity,
+                            child: Text('Radio Button Screen',
                                 textAlign: TextAlign.center),
                           ),
                         ),
