@@ -1,5 +1,6 @@
 import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_cool_widgets/CheckBoxScreen.dart';
 import 'package:flutter_cool_widgets/image_slider_screen.dart';
 import 'package:flutter_styled_toast/flutter_styled_toast.dart';
 import 'package:flutter_cool_widgets/radio_button_screen.dart';
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/Image-Slider-Screen': (ctx) => const ImageSliderScreen(),
         '/Radio-Button-Screen': (ctx) => const RadioButtonScreen(),
+        '/Check-Box-Screen': (ctx) => const CheckBoxScreen(),
       },
     );
   }
@@ -213,7 +215,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: Text('Image Slider Screen',
                                 textAlign: TextAlign.center),
                           ),
-                        ),
+                        ), //image slider
                         ElevatedButton(
                           onPressed: () {
                             Navigator.of(context)
@@ -224,7 +226,18 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: Text('Radio Button Screen',
                                 textAlign: TextAlign.center),
                           ),
-                        ),
+                        ), //radio buttons
+                        ElevatedButton(
+                          onPressed: () {
+                            Navigator.of(context)
+                                .pushNamed('/Check-Box-Screen');
+                          },
+                          child: const SizedBox(
+                            width: double.infinity,
+                            child: Text('Check Box Screen',
+                                textAlign: TextAlign.center),
+                          ),
+                        ), //check box
                       ],
                     ),
                   ),
