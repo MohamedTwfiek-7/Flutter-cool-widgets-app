@@ -9,6 +9,8 @@ import 'package:flutter_cool_widgets/switch_screen.dart';
 import 'package:flutter_styled_toast/flutter_styled_toast.dart';
 import 'package:flutter_cool_widgets/radio_button_screen.dart';
 
+import 'color_picker_screen.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -33,6 +35,7 @@ class MyApp extends StatelessWidget {
         '/Drop-Down-Button-Screen': (ctx) => const DropDownButtonScreen(),
         '/Expandable-List-Screen': (ctx) => const ExpandableListscreen(),
         '/Image-Picker-Screen': (ctx) => const ImagePickerScreen(),
+        '/Color-Picker-Screen': (ctx) => const ColorPickerScreen(),
       },
     );
   }
@@ -294,6 +297,17 @@ class _MyHomePageState extends State<MyHomePage> {
                                   textAlign: TextAlign.center),
                             ),
                           ), //Image  picker
+                          ElevatedButton(
+                            onPressed: () {
+                              Navigator.of(context)
+                                  .pushNamed('/Color-Picker-Screen');
+                            },
+                            child: const SizedBox(
+                              width: double.infinity,
+                              child: Text('Color Picker Screen',
+                                  textAlign: TextAlign.center),
+                            ),
+                          ), //Color  picker
                         ],
                       ),
                     ),
