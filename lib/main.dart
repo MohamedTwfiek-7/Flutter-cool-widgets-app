@@ -2,6 +2,7 @@ import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cool_widgets/CheckBoxScreen.dart';
 import 'package:flutter_cool_widgets/DropDownButtonScreen.dart';
+import 'package:flutter_cool_widgets/ExpandableListScreen.dart';
 import 'package:flutter_cool_widgets/image_slider_screen.dart';
 import 'package:flutter_cool_widgets/switch_screen.dart';
 import 'package:flutter_styled_toast/flutter_styled_toast.dart';
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
         '/Check-Box-Screen': (ctx) => const CheckBoxScreen(),
         '/Switch-Screen': (ctx) => const SwitchScreen(),
         '/Drop-Down-Button-Screen': (ctx) => const DropDownButtonScreen(),
+        '/Expandable-List-Screen': (ctx) => const ExpandableListscreen(),
       },
     );
   }
@@ -267,7 +269,18 @@ class _MyHomePageState extends State<MyHomePage> {
                               child: Text('DropDown Button Screen',
                                   textAlign: TextAlign.center),
                             ),
-                          ), //Switch
+                          ), //DropDown button
+                          ElevatedButton(
+                            onPressed: () {
+                              Navigator.of(context)
+                                  .pushNamed('/Expandable-List-Screen');
+                            },
+                            child: const SizedBox(
+                              width: double.infinity,
+                              child: Text('Expandable List Screen',
+                                  textAlign: TextAlign.center),
+                            ),
+                          ), //Expandable list
                         ],
                       ),
                     ),
