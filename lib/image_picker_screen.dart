@@ -14,9 +14,9 @@ class _ImagePickerScreenState extends State<ImagePickerScreen> {
   final ImagePicker _picker = ImagePicker();
   File? pickedImage;
 
-  fitchImage() async{
+  fitchImage() async {
     final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
-    if(image==null) return;
+    if (image == null) return;
     setState(() {
       pickedImage = File(image.path);
     });
@@ -36,7 +36,14 @@ class _ImagePickerScreenState extends State<ImagePickerScreen> {
         title: const Text('Image Picker Screen'),
       ),
       body: Center(
-        child: pickedImage== null ? const Text('please, add image') : Image.file(pickedImage!),
+        child: InteractiveViewer(
+          boundaryMargin: EdgeInsets.all(20),
+          scaleEnabled: true,
+            maxScale: 50.0,
+            minScale: 0.1,
+            child: pickedImage == null
+                ? const Text('please, add image')
+                : Image.file(pickedImage!)),
       ),
     );
   }

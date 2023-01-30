@@ -5,6 +5,7 @@ import 'package:flutter_cool_widgets/DropDownButtonScreen.dart';
 import 'package:flutter_cool_widgets/ExpandableListScreen.dart';
 import 'package:flutter_cool_widgets/image_picker_screen.dart';
 import 'package:flutter_cool_widgets/image_slider_screen.dart';
+import 'package:flutter_cool_widgets/list_wheel_scroll_view_screen.dart';
 import 'package:flutter_cool_widgets/parcent_indicatior_screen.dart';
 import 'package:flutter_cool_widgets/switch_screen.dart';
 import 'package:flutter_styled_toast/flutter_styled_toast.dart';
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
         '/Color-Picker-Screen': (ctx) => const ColorPickerScreen(),
         '/Dismissible-Screen': (ctx) => const DismissibleScreen(),
         '/Percent_Indicator-Screen': (ctx) => const PercantIndicatorScreen(),
+        '/ListWheel-ScrollView-Screen': (ctx) => const ListWheelScrollViewscreen(),
       },
     );
   }
@@ -331,6 +333,17 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: const SizedBox(
                               width: double.infinity,
                               child: Text('Percent Indicator Screen',
+                                  textAlign: TextAlign.center),
+                            ),
+                          ), // percent indication
+                          ElevatedButton(
+                            onPressed: () {
+                              Navigator.of(context)
+                                  .pushNamed('/ListWheel-ScrollView-Screen');
+                            },
+                            child: const SizedBox(
+                              width: double.infinity,
+                              child: Text('ListWheel ScrollView Screen',
                                   textAlign: TextAlign.center),
                             ),
                           ), // percent indication
