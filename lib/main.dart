@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_cool_widgets/CheckBoxScreen.dart';
 import 'package:flutter_cool_widgets/DropDownButtonScreen.dart';
 import 'package:flutter_cool_widgets/ExpandableListScreen.dart';
+import 'package:flutter_cool_widgets/form_screen.dart';
 import 'package:flutter_cool_widgets/image_picker_screen.dart';
 import 'package:flutter_cool_widgets/image_slider_screen.dart';
 import 'package:flutter_cool_widgets/list_wheel_scroll_view_screen.dart';
@@ -10,12 +11,13 @@ import 'package:flutter_cool_widgets/parcent_indicatior_screen.dart';
 import 'package:flutter_cool_widgets/switch_screen.dart';
 import 'package:flutter_styled_toast/flutter_styled_toast.dart';
 import 'package:flutter_cool_widgets/radio_button_screen.dart';
-
+import 'package:flutter/material.dart';
+import 'splash_screen.dart';
 import 'color_picker_screen.dart';
 import 'dismissible_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const SplashScreenPage());
 }
 
 ThemeMode tm = ThemeMode.light;
@@ -42,6 +44,7 @@ class MyApp extends StatelessWidget {
         '/Dismissible-Screen': (ctx) => const DismissibleScreen(),
         '/Percent_Indicator-Screen': (ctx) => const PercantIndicatorScreen(),
         '/ListWheel-ScrollView-Screen': (ctx) => const ListWheelScrollViewscreen(),
+        '/Form-Screen': (ctx) => const FormScreen(),
       },
     );
   }
@@ -346,7 +349,18 @@ class _MyHomePageState extends State<MyHomePage> {
                               child: Text('ListWheel ScrollView Screen',
                                   textAlign: TextAlign.center),
                             ),
-                          ), // percent indication
+                          ), // ListWheel-ScrollView
+                          ElevatedButton(
+                            onPressed: () {
+                              Navigator.of(context)
+                                  .pushNamed('/Form-Screen');
+                            },
+                            child: const SizedBox(
+                              width: double.infinity,
+                              child: Text('Form Screen',
+                                  textAlign: TextAlign.center),
+                            ),
+                          ), // ListWheel-ScrollView
                         ],
                       ),
                     ),
