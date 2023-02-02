@@ -12,7 +12,7 @@ class SplashScreenPage extends StatelessWidget {
         body: Center(
           child: Container(
             child: EasySplashScreen(
-              loadingText: Text('splash screen'),
+              loadingText: const Text('splash screen'),
               logo: Image.asset('images/image3.jpg'),
               logoWidth: 170,
               backgroundColor: Colors.blueAccent,

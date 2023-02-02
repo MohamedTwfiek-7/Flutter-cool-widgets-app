@@ -7,6 +7,7 @@ import 'package:flutter_cool_widgets/form_screen.dart';
 import 'package:flutter_cool_widgets/image_picker_screen.dart';
 import 'package:flutter_cool_widgets/image_slider_screen.dart';
 import 'package:flutter_cool_widgets/list_wheel_scroll_view_screen.dart';
+import 'package:flutter_cool_widgets/page_view.dart';
 import 'package:flutter_cool_widgets/parcent_indicatior_screen.dart';
 import 'package:flutter_cool_widgets/switch_screen.dart';
 import 'package:flutter_styled_toast/flutter_styled_toast.dart';
@@ -17,7 +18,7 @@ import 'color_picker_screen.dart';
 import 'dismissible_screen.dart';
 
 void main() {
-  runApp(const SplashScreenPage());
+  runApp(const Pview());
 }
 
 ThemeMode tm = ThemeMode.light;
@@ -87,9 +88,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   decoration: const BoxDecoration(
                     gradient: LinearGradient(
                       colors: [
-                        Colors.deepPurpleAccent,
-                        Colors.redAccent,
-                        Colors.deepPurpleAccent,
+                        Colors.blueAccent,
+                        Colors.greenAccent,
+                        Colors.blueAccent,
                       ],
                     ),
                   ),
