@@ -1,5 +1,5 @@
 import 'dart:async';
-
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cool_widgets/splash_screen.dart';
 
@@ -123,8 +123,11 @@ class _PviewState extends State<Pview> {
                     if (_currInx == 3) {
                       Future.delayed(
                           const Duration(seconds: 2),
-                          () => Navigator.of(ctx)
-                              .pushReplacementNamed('/SplashScreen'));
+                          () async {
+                            SharedPreferences preferences = await SharedPreferences.getInstance();
+                            preferences.setBool('pView', true);
+                            Navigator.of(ctx).pushReplacementNamed('/SplashScreen');
+                          });
                     }
                   });
                 },
@@ -143,8 +146,10 @@ class _PviewState extends State<Pview> {
                       backgroundColor: Colors.deepOrange,
                       padding: const EdgeInsets.all(7),
                     ),
-                    onPressed: () {
+                    onPressed: () async {
                       Navigator.of(ctx).pushReplacementNamed('/SplashScreen');
+                      SharedPreferences preferences = await SharedPreferences.getInstance();
+                      preferences.setBool('pView', true);
                     },
                     child: const Text('Get Started'),
                   ),
@@ -186,10 +191,10 @@ class PageIndicator extends StatelessWidget {
             height: 15,
             width: 15,
             decoration: const BoxDecoration(
-              color: Colors.purple,
+              color: Colors.white,
               shape: BoxShape.circle,
             ),
           )
-        : Icon(Icons.star,color: Colors.deepOrangeAccent,);
+        : const Icon(Icons.star,color: Colors.deepOrangeAccent,);
   }
 }

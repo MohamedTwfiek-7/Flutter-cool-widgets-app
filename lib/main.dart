@@ -12,13 +12,16 @@ import 'package:flutter_cool_widgets/parcent_indicatior_screen.dart';
 import 'package:flutter_cool_widgets/switch_screen.dart';
 import 'package:flutter_styled_toast/flutter_styled_toast.dart';
 import 'package:flutter_cool_widgets/radio_button_screen.dart';
-import 'package:flutter/material.dart';
-import 'splash_screen.dart';
 import 'color_picker_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'dismissible_screen.dart';
 
-void main() {
-  runApp(const Pview());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences preferences = await SharedPreferences.getInstance();
+  bool? isSeen = preferences.getBool('pView');
+  Widget screen = (isSeen == false || isSeen == null) ? const Pview() : const MyApp();
+  runApp(screen);
 }
 
 ThemeMode tm = ThemeMode.light;
@@ -124,11 +127,11 @@ class _MyHomePageState extends State<MyHomePage> {
                               child: Text('show toast',
                                   textAlign: TextAlign.center),
                             ),
-                          ), //toast
+                          ), // toast
                           ElevatedButton(
                             onPressed: () {
                               final alert = AlertDialog(
-                                content: Container(
+                                content: SizedBox(
                                   height: 100,
                                   child: Column(
                                     children: [
@@ -164,7 +167,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               child: Text('show Alert dialog',
                                   textAlign: TextAlign.center),
                             ),
-                          ), //alert dialog
+                          ), // alert dialog
                           ElevatedButton(
                             onPressed: () {
                               setState(() {
@@ -194,7 +197,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               child: Text('show Snack-bar',
                                   textAlign: TextAlign.center),
                             ),
-                          ), //snack-bar
+                          ), // snack-bar
                           ElevatedButton(
                             onPressed: () {
                               Flushbar(
@@ -229,7 +232,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               child: Text('show Flush-Bar',
                                   textAlign: TextAlign.center),
                             ),
-                          ), //flush-bar
+                          ), // flush-bar
                           ElevatedButton(
                             onPressed: () {
                               Navigator.of(context)
@@ -240,7 +243,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               child: Text('Image Slider Screen',
                                   textAlign: TextAlign.center),
                             ),
-                          ), //image slider
+                          ), // image slider
                           ElevatedButton(
                             onPressed: () {
                               Navigator.of(context)
@@ -251,7 +254,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               child: Text('Radio Button Screen',
                                   textAlign: TextAlign.center),
                             ),
-                          ), //radio buttons
+                          ), // radio buttons
                           ElevatedButton(
                             onPressed: () {
                               Navigator.of(context)
@@ -262,7 +265,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               child: Text('Check Box Screen',
                                   textAlign: TextAlign.center),
                             ),
-                          ), //check box
+                          ), // check box
                           ElevatedButton(
                             onPressed: () {
                               Navigator.of(context)
@@ -273,7 +276,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               child: Text('Switch Screen',
                                   textAlign: TextAlign.center),
                             ),
-                          ), //Switch
+                          ), // Switch
                           ElevatedButton(
                             onPressed: () {
                               Navigator.of(context)
@@ -284,7 +287,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               child: Text('DropDown Button Screen',
                                   textAlign: TextAlign.center),
                             ),
-                          ), //DropDown button
+                          ), // DropDown button
                           ElevatedButton(
                             onPressed: () {
                               Navigator.of(context)
@@ -295,7 +298,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               child: Text('Expandable List Screen',
                                   textAlign: TextAlign.center),
                             ),
-                          ), //Expandable list
+                          ), // Expandable list
                           ElevatedButton(
                             onPressed: () {
                               Navigator.of(context)
@@ -306,7 +309,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               child: Text('Image Picker Screen',
                                   textAlign: TextAlign.center),
                             ),
-                          ), //Image  picker
+                          ), // Image  picker
                           ElevatedButton(
                             onPressed: () {
                               Navigator.of(context)
@@ -317,7 +320,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               child: Text('Color Picker Screen',
                                   textAlign: TextAlign.center),
                             ),
-                          ), //Color  picker
+                          ), // Color  picker
                           ElevatedButton(
                             onPressed: () {
                               Navigator.of(context)
@@ -328,7 +331,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               child: Text('Dismissible Screen',
                                   textAlign: TextAlign.center),
                             ),
-                          ), //Dismissible
+                          ), // Dismissible
                           ElevatedButton(
                             onPressed: () {
                               Navigator.of(context)
@@ -361,7 +364,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               child: Text('Form Screen',
                                   textAlign: TextAlign.center),
                             ),
-                          ), // ListWheel-ScrollView
+                          ), // Form-Screen
                         ],
                       ),
                     ),
